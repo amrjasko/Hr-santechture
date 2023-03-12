@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>Add new Employee</title>
+        <style>
+            button.ui-button {
+                margin-right: .5rem;
+            }
+        </style>
+    </h:head>
+    <h:body style="">
+        <h:form>
+
+            <div class="card">
+                <h3>Add Employee</h3>
+                <div class="field grid">
+                    <p:outputLabel for="Id" styleClass="col-fixed" style="width:100px" value="#{employeeBean.currentEmployee.empPk}"
+                                   title="Id"/>
+                    <div class="col">
+                        <p:inputText id="id"/>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <p:outputLabel for="name" styleClass="col-fixed" style="width:100px" value="#{employeeBean.currentEmployee.empName}" 
+                                   title="name"/>
+                    <div class="col">
+                        <p:inputText id="name"/>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <p:outputLabel for="National Id" styleClass="col-fixed" style="width:100px" value="#{employeeBean.currentEmployee.empNationalFk}" 
+                                   title="nationalId"/>
+                    <div class="col">
+                        <p:inputText id="nationalId"/>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <p:outputLabel for="salary" styleClass="col-fixed" style="width:100px" value="#{employeeBean.currentEmployee.empSalary}" 
+                                   title="salary"/>
+                    <div class="col">
+                        <p:inputText id="name"/>
+                    </div>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <p:outputLabel for="@next"  style="width:100px" value="Department" title="Department"/>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <p:selectOneMenu id="option" value="#{employeeBean.selectedDepartment}">
+                        <f:selectItems value="#{employeeBean.departments}" var="dept"
+                                       itemValue="#{dept.departmentName}"/>
+                        <f:facet name="footer">
+                            <h:outputText value="3 options" style="font-weight:bold;"/>
+                        </f:facet>
+                    </p:selectOneMenu>
+                </div>
+                <h:commandButton action="#{employeeBean.saveEmployee()}" value="Save"  />
+            </div>
+        </h:form>
+
+
+    </h:body>
+</html>

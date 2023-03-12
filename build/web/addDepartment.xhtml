@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>Add new Department</title>
+        <style>
+            button.ui-button {
+                margin-right: .5rem;
+            }
+        </style>
+    </h:head>
+    <h:body style="">
+        <h:form>
+
+            <div class="card">
+                <h3>Add Department</h3>
+                <div class="field grid">
+                    <p:outputLabel for="Id" styleClass="col-fixed" style="width:100px" 
+                                   value="#{departmentBean.currentDepartment.departmentPk}"
+                                   title="id"/>
+                    <div class="col">
+                        <p:inputText id="firstname"/>
+                    </div>
+                </div>
+                <div class="field grid">
+                    <p:outputLabel for="name" styleClass="col-fixed" style="width:100px" value="#{departmentBean.currentDepartment.departmentName}" title="name"/>
+                    <div class="col">
+                        <p:inputText id="name"/>
+                    </div>
+                </div>
+                <h:commandButton action="#{departmentBean.saveDepartment()}" value="Save"/>
+            </div>
+        </h:form>
+
+
+    </h:body>
+</html>

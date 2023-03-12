@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+
+    <h:head>
+        <title>Hr Santechture</title>
+        <style>
+            button.ui-button {
+                margin-right: .5rem;
+            }
+        </style>
+
+    </h:head>
+    <h:body style="">
+        <a href="#{request.contextPath}/addEmployee.xhtml">Add New Employee</a>
+        <a href="#{request.contextPath}/addDepartment.xhtml">Add New Department</a>
+        <h:form>
+            <div class="card">
+                <p:dataTable var="emp" value="#{myBean.employees}">
+                    <p:column headerText="Name">
+                        <h:outputText value="#{emp.empName}" />
+                    </p:column>
+
+                    <p:column headerText="National Id">
+                        <h:outputText value="#{emp.empNationalFk}" />
+                    </p:column>
+
+                    <p:column headerText="Salary">
+                        <h:outputText value="#{emp.empSalary}" />
+                    </p:column>
+
+                    <p:column headerText="Department">
+                        <h:outputText value="#{emp.hrsDepartment.departmentName}" />
+                    </p:column>
+                </p:dataTable>
+            </div>
+        </h:form>
+    </h:body>
+</html>
+
